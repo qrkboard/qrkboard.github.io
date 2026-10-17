@@ -46,8 +46,7 @@ header{display:flex;justify-content:center;padding-block:40px 8px}
   border-radius:14px;border:1px solid var(--line);background:var(--panel)}
 .track::-webkit-scrollbar{display:none}
 .slide{flex:0 0 100%;scroll-snap-align:center;margin:0;min-width:0}
-/* Replace each .shot placeholder with <img src="..." alt="..."> (16:9). */
-.shot{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:
+.shot{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:
   repeating-linear-gradient(45deg,transparent 0 14px,rgba(255,255,255,.025) 14px 28px),var(--panel);
   display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:14px;letter-spacing:.08em;text-transform:uppercase}
 .slide figcaption{padding:16px 20px 20px;border-top:1px solid var(--line)}
@@ -66,6 +65,9 @@ header{display:flex;justify-content:center;padding-block:40px 8px}
   transition:background .2s,transform .2s}
 .dots button[aria-current="true"]{background:var(--ink);transform:scale(1.25)}
 
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;padding-top:48px}
+.info h2{margin:0 0 4px;font-weight:500;font-size:20px}
+.info p{margin:0;color:var(--mute)}
 footer{text-align:center;color:var(--mute);font-size:14px;padding-block:56px 40px}
 
 @media (max-width:520px){
@@ -89,18 +91,21 @@ footer{text-align:center;color:var(--mute);font-size:14px;padding-block:56px 40p
 
   <section class="carousel" aria-roledescription="carousel" aria-label="QRK Board screenshots">
     <div class="track" id="track" tabindex="0">
-      <figure class="slide" aria-roledescription="slide" aria-label="1 of 3">
-        <!-- Replace this div with: <img class="shot" src="img/board.jpg" alt="The board in a dark theme"> -->
-        <div class="shot">Board with themes</div>
-        <figcaption><h2>Themes</h2><p>Pick a look that suits the room.</p></figcaption>
+      <figure class="slide" aria-roledescription="slide" aria-label="1 of 4">
+        <img class="shot" src="img/default-dark.jpg" alt="The default layout in a dark theme" width="1920" height="1080">
+        <figcaption><h2>Everything at once</h2><p>Clock, weather, calendar, cameras, devices and news.</p></figcaption>
       </figure>
-      <figure class="slide" aria-roledescription="slide" aria-label="2 of 3">
-        <div class="shot">Layout manager</div>
-        <figcaption><h2>Layout manager</h2><p>Drag tiles where you want them.</p></figcaption>
+      <figure class="slide" aria-roledescription="slide" aria-label="2 of 4">
+        <img class="shot" src="img/photo-clock-dark.jpg" alt="The photo clock layout" width="1920" height="1080" loading="lazy">
+        <figcaption><h2>Photo clock</h2><p>Your photos with the time over them.</p></figcaption>
       </figure>
-      <figure class="slide" aria-roledescription="slide" aria-label="3 of 3">
-        <div class="shot">Widget list</div>
-        <figcaption><h2>Widgets</h2><p>Add only what you want to see.</p></figcaption>
+      <figure class="slide" aria-roledescription="slide" aria-label="3 of 4">
+        <img class="shot" src="img/calendar-light.jpg" alt="The calendar layout in a light theme" width="1920" height="1080" loading="lazy">
+        <figcaption><h2>Calendar</h2><p>Several weeks at a glance.</p></figcaption>
+      </figure>
+      <figure class="slide" aria-roledescription="slide" aria-label="4 of 4">
+        <img class="shot" src="img/default-light.jpg" alt="The default layout in a light theme" width="1920" height="1080" loading="lazy">
+        <figcaption><h2>Light or dark</h2><p>Pick a theme that suits the room.</p></figcaption>
       </figure>
     </div>
     <button class="arrow prev" id="prev" type="button" aria-label="Previous screenshot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
@@ -108,10 +113,13 @@ footer{text-align:center;color:var(--mute);font-size:14px;padding-block:56px 40p
     <div class="dots" id="dots"></div>
   </section>
 
-  <footer>
-    <!-- Links, store badges, contact: fill in. -->
-    © QRK Board
-  </footer>
+  <section class="info">
+    <div><h2>Widgets</h2><p>Clock, weather, calendars, news, cameras, devices and metrics from any REST API.</p></div>
+    <div><h2>Your layout</h2><p>Drag tiles in the web app on your phone or laptop.</p></div>
+    <div><h2>Runs on</h2><p>Raspberry Pi 4 and 5, and Android TV.</p></div>
+  </section>
+
+  <footer>© QRK Board</footer>
 </div>
 
 <script>
