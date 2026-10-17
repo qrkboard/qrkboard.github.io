@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QRK Board</title>
+<meta name="description" content="QRK Board turns a TV into a living dashboard.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='24' fill='none' stroke='%237219F4' stroke-width='10'/%3E%3Cpath d='M46 46l12 12' stroke='%23E60B8D' stroke-width='10' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;800&display=swap">
+<style>
+/* Layout: dark page, centered logo header, hero line, then a screenshot carousel. */
+:root{
+  --bg:#0b0f17;
+  --panel:#141b27;
+  --line:#2a3342;
+  --ink:#ffffff;
+  --mute:#9aa6b8;
+  --accent:#7219f4;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--sans);
+  padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1000px;margin:0 auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:4px}
+
+/* Header: the Q mark (colors sweep around the ring) and the wordmark */
+header{display:flex;justify-content:center;padding-block:40px 8px}
+.word{display:flex;align-items:center;gap:14px;font-size:44px;line-height:1;user-select:none}
+.word canvas{width:76px;height:76px;flex:none}
+.word b{font-weight:800;letter-spacing:-.01em}
+.word span{font-weight:300;margin-left:.08em}
+
+.hero{text-align:center;padding-block:20px 36px}
+.hero h1{margin:0 0 12px;font-weight:500;font-size:clamp(24px,5vw,38px);line-height:1.2;text-wrap:balance}
+.hero p{margin:0 auto;max-width:34em;color:var(--mute);font-size:18px;text-wrap:balance}
+
+/* Carousel */
+.carousel{position:relative}
+.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+  border-radius:14px;border:1px solid var(--line);background:var(--panel)}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:center;margin:0;min-width:0}
+/* Replace each .shot placeholder with <img src="..." alt="..."> (16:9). */
+.shot{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:
+  repeating-linear-gradient(45deg,transparent 0 14px,rgba(255,255,255,.025) 14px 28px),var(--panel);
+  display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+.slide figcaption{padding:16px 20px 20px;border-top:1px solid var(--line)}
+.slide h2{margin:0 0 4px;font-weight:500;font-size:20px}
+.slide figcaption p{margin:0;color:var(--mute)}
+
+.arrow{position:absolute;top:calc((100% - 96px)/2);transform:translateY(-50%);width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--line);background:rgba(11,15,23,.8);color:var(--ink);cursor:pointer;display:grid;place-items:center;
+  backdrop-filter:blur(6px)}
+.arrow:hover{border-color:var(--mute)}
+.arrow svg{width:20px;height:20px}
+.arrow.prev{left:12px}.arrow.next{right:12px}
+.arrow[disabled]{opacity:.3;cursor:default}
+.dots{display:flex;justify-content:center;gap:10px;padding-top:18px}
+.dots button{width:10px;height:10px;padding:0;border-radius:50%;border:0;background:var(--line);cursor:pointer;
+  transition:background .2s,transform .2s}
+.dots button[aria-current="true"]{background:var(--ink);transform:scale(1.25)}
+
+footer{text-align:center;color:var(--mute);font-size:14px;padding-block:56px 40px}
+
+@media (max-width:520px){
+  .word{font-size:32px;gap:10px}.word canvas{width:54px;height:54px}
+  .arrow{display:none}
+  .hero p{font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dots button{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="word" aria-label="QRK Board"><canvas id="logo" width="152" height="152" aria-hidden="true"></canvas><div><b>QRK</b><span>Board</span></div></div>
+  </header>
+
+  <section class="hero">
+    <h1>Your TV, as a dashboard.</h1>
+    <p>Weather, calendar, news and more on one screen, in the layout and theme you pick.</p>
+  </section>
+
+  <section class="carousel" aria-roledescription="carousel" aria-label="QRK Board screenshots">
+    <div class="track" id="track" tabindex="0">
+      <figure class="slide" aria-roledescription="slide" aria-label="1 of 3">
+        <!-- Replace this div with: <img class="shot" src="img/board.jpg" alt="The board in a dark theme"> -->
+        <div class="shot">Board with themes</div>
+        <figcaption><h2>Themes</h2><p>Pick a look that suits the room.</p></figcaption>
+      </figure>
+      <figure class="slide" aria-roledescription="slide" aria-label="2 of 3">
+        <div class="shot">Layout manager</div>
+        <figcaption><h2>Layout manager</h2><p>Drag tiles where you want them.</p></figcaption>
+      </figure>
+      <figure class="slide" aria-roledescription="slide" aria-label="3 of 3">
+        <div class="shot">Widget list</div>
+        <figcaption><h2>Widgets</h2><p>Add only what you want to see.</p></figcaption>
+      </figure>
+    </div>
+    <button class="arrow prev" id="prev" type="button" aria-label="Previous screenshot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button class="arrow next" id="next" type="button" aria-label="Next screenshot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+    <div class="dots" id="dots"></div>
+  </section>
+
+  <footer>
+    <!-- Links, store badges, contact: fill in. -->
+    © QRK Board
+  </footer>
+</div>
+
+<script>
+"use strict";
+// The mark: a Q whose colors sweep around the ring, with a pulse inside.
+(function(){
+  const cv=document.getElementById('logo'),x=cv.getContext('2d'),W=cv.width,R=W/2.2,C=W/2,T=.34,TAU=Math.PI*2;
+  const col=v=>`rgb(${[0,1,2].map(k=>Math.round(Math.sin(v+k*2.0944)*127+128)).join()})`;
+  const a=Math.PI/4,tp=r=>[C+Math.cos(a)*r*R,C+Math.sin(a)*r*R];
+  const P=[[-1,0],[-.62,0],[-.5,-.18],[-.38,.34],[-.22,-.62],[-.06,.7],[.1,-.36],[.24,.22],[.34,0],[1,0]];
+  const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function f(t){
+    const ph=t/1000*2;x.clearRect(0,0,W,W);
+    const g=x.createConicGradient(0,C,C);for(let i=0;i<=24;i++)g.addColorStop(i/24,col(i/24*TAU-ph));
+    x.strokeStyle=g;x.lineCap='round';x.lineJoin='round';
+    x.lineWidth=T*R;x.beginPath();x.arc(C,C,(1-T/2)*R,0,TAU);x.stroke();
+    x.lineWidth=1.05*T*R;x.beginPath();x.moveTo(...tp(1-.9*T));x.lineTo(...tp(1+.9*T));x.stroke();
+    const sx=(1-T)*.92*R,sy=(1-T)*.62*R,w=x.createLinearGradient(C-sx,0,C+sx,0);
+    for(let i=0;i<=8;i++){const u=-.6+1.2*i/8;w.addColorStop(i/8,col(u*2.2+1.2-ph))}
+    x.strokeStyle=w;x.lineWidth=.32*T*R;x.beginPath();P.forEach(([px,py],i)=>x[i?'lineTo':'moveTo'](C+px*sx,C+py*sy));x.stroke();
+    if(!still)requestAnimationFrame(f)}
+  requestAnimationFrame(f);
+})();
+
+// Carousel: native scroll-snap plus arrows, dots and arrow keys.
+(function(){
+  const track=document.getElementById('track'),slides=[...track.children],dots=document.getElementById('dots'),
+        prev=document.getElementById('prev'),next=document.getElementById('next');
+  let cur=0;
+  const go=i=>{i=Math.max(0,Math.min(slides.length-1,i));track.scrollTo({left:i*track.clientWidth,behavior:'smooth'})};
+  slides.forEach((s,i)=>{const b=document.createElement('button');b.type='button';
+    b.setAttribute('aria-label','Show screenshot '+(i+1));b.onclick=()=>go(i);dots.append(b)});
+  function sync(){
+    cur=Math.round(track.scrollLeft/track.clientWidth);
+    [...dots.children].forEach((b,i)=>b.setAttribute('aria-current',i===cur));
+    prev.disabled=cur===0;next.disabled=cur===slides.length-1}
+  track.addEventListener('scroll',sync,{passive:true});
+  prev.onclick=()=>go(cur-1);next.onclick=()=>go(cur+1);
+  track.addEventListener('keydown',e=>{
+    if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)}
+    if(e.key==='ArrowRight'){e.preventDefault();go(cur+1)}});
+  addEventListener('resize',()=>track.scrollTo({left:cur*track.clientWidth}));
+  sync();
+})();
+</script>
+</body>
+</html>
