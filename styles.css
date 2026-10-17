@@ -20,3 +20,10 @@
 .shot-stage[data-orient="landscape"] img{width:min(100%,1000px)}
 .shot-stage[data-orient="portrait"] img{width:auto;max-width:100%;max-height:720px;aspect-ratio:9/16}
 @media(max-width:720px){.stores{flex-direction:column;align-items:stretch}.seg button{padding:9px 11px;font-size:12px}.screens-section{padding-top:75px}}
+.logo{width:38px;height:38px;flex:none}
+.site-footer .logo{width:32px;height:32px}
+.hero{padding-top:28px;padding-bottom:64px;min-height:0}
+.screens-section{padding-top:72px}
+.shot-stage[data-orient="portrait"] img{width:min(100%,405px);height:auto;max-height:none;aspect-ratio:auto}
+@media(max-width:720px){.brand .logo{width:33px;height:33px}.hero{padding-top:24px;padding-bottom:48px}.screens-section{padding-top:56px}}
+img{height:auto}.screen-frame img{height:auto}
