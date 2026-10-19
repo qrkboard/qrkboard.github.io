@@ -38,7 +38,7 @@ Plain static files, no build step.
 - "For home" and "For business" show mock-ups drawn in HTML and CSS with
   made-up numbers. Replace them with real screenshots (family layout; cameras
   and metrics, plus a branding tile for Pro).
-- Store badges (Google Play, Amazon Appstore, Raspberry Pi) are plain icons
+- Store badges (Google Play, Amazon Appstore; Raspberry Pi removed for now) are plain icons
   without links. Swap in the official badges and link live listings when they
   exist, following each brand's guidelines.
 - Wording to confirm against the product: the Free and Pro split, "Affordable
