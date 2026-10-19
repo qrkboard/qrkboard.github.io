@@ -47,7 +47,7 @@ var L={bug:['What happened?','What did you expect?'],feature:['What would you li
 f.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(){t=b.dataset.v;f.querySelectorAll('.seg button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});document.getElementById('fb-l1').textContent=L[t][0];document.getElementById('fb-l2').textContent=L[t][1]}});
 f.onsubmit=function(e){e.preventDefault();var v=function(i){return document.getElementById(i).value.trim()};btn.disabled=true;msg.textContent='Sending...';
 fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:t,title:v('fb-title'),a:v('fb-a'),b:v('fb-b'),device:v('fb-env'),website:v('fb-site')})})
-.then(function(r){return r.json()}).then(function(d){msg.textContent=d.message;if(d.ok)f.reset()}).catch(function(){msg.textContent='Could not send, try again later'}).then(function(){btn.disabled=false})}})();
+.then(function(r){return r.json()}).then(function(d){msg.textContent=d.message;if(d.ok)f.reset()}).catch(function(){msg.textContent='Could not reach the server, try again later'}).then(function(){btn.disabled=false})}})();
 </script></main>
   <footer class="site-footer"><div class="section-wrap footer-inner"><a class="brand" href="index.html"><canvas class="logo" width="152" height="152" aria-hidden="true"></canvas><span>QRK <b>Board</b></span></a><span class="footer-tagline">Your screen. Your dashboard. Nothing complicated.</span><div class="footer-links"><a href="privacy.html">Privacy</a><a href="index.html#faq">FAQ</a><a href="feedback.html">Feedback</a><a href="mailto:qrkboard@gmail.com">Contact</a></div><span class="copyright">© <span id="year">2026</span> QRK Board</span></div></footer>
   <script src="script.js?v=2"></script>

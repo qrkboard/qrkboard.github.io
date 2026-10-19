@@ -49,6 +49,6 @@ export default {
       },
       body: JSON.stringify({ title, body, labels }),
     });
-    return r.ok ? reply(200, 'Thanks, we got it') : reply(502, 'Could not send, try again later');
+    return r.ok ? reply(200, 'Thanks, we got it') : reply(502, `Could not send, try again later (GitHub ${r.status})`);
   },
 };
