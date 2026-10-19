@@ -40,3 +40,22 @@ img{height:auto}.screen-frame img{height:auto}
 .price-card .price-sub{font-size:16px;font-weight:700;color:#e5e8ec;margin-top:8px}
 .shot-card.fade{display:grid}.shot-card.fade img{grid-area:1/1;opacity:0;transition:opacity 1.5s ease}.shot-card.fade img.on{opacity:1}.shot-card.fade img:first-child{opacity:1}.shot-card.fade.go img:first-child{opacity:0}.shot-card.fade.go img.on{opacity:1}
 @media (prefers-reduced-motion:reduce){.shot-card.fade img{transition:none}}
+
+.editor-image[data-layout-anim]{position:relative}
+.la-stage{display:none;position:absolute;inset:0;pointer-events:none;--s:.4}
+.la-stage.on{display:block}
+.la-stage *{box-sizing:border-box}
+.la-box{position:absolute;left:calc(var(--s)*31px);top:calc(var(--s)*129px);width:calc(var(--s)*481px);height:calc(var(--s)*853px);background:#111827;border:1px solid #374151;border-radius:calc(var(--s)*12px)}
+.la-tile{position:absolute;display:flex;align-items:center;justify-content:center;border:2px solid #4b5563;border-radius:calc(var(--s)*10px);background:linear-gradient(#28323e,#1f2733);color:#9ca3af;font:600 calc(var(--s)*17px)/1 Inter,'DM Sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;overflow:hidden;transition:left .8s ease,top .8s ease,width .8s ease,height .8s ease,opacity .45s ease,transform .45s ease}
+.la-tile.gone{opacity:0;transform:scale(.92)}
+.la-tile.drag{border-color:#818cf8;box-shadow:0 8px 24px #0008;z-index:3}
+.la-tile.new{border-color:#6366f1}
+.la-gap{position:absolute;border:2px dashed #4b5563;border-radius:calc(var(--s)*10px);opacity:0;transition:opacity .3s}
+.la-gap.on{opacity:.7}
+.la-chip{position:absolute;border:2px solid #818cf8;border-radius:999px;opacity:0;transition:opacity .2s}
+.la-chip.on{opacity:1;background:#6366f133}
+.la-menu{position:absolute;padding:calc(var(--s)*8px) calc(var(--s)*18px);border:1px solid #4b5563;border-radius:calc(var(--s)*8px);background:#1f2937;color:#f87171;font:500 calc(var(--s)*17px)/1 Inter,'DM Sans',sans-serif;opacity:0;transition:opacity .2s;box-shadow:0 8px 20px #0007;z-index:4}
+.la-menu.on{opacity:1}
+.la-cursor{position:absolute;width:calc(var(--s)*30px);height:calc(var(--s)*36px);left:0;top:0;z-index:5;transition:left .9s cubic-bezier(.4,0,.2,1),top .9s cubic-bezier(.4,0,.2,1),transform .12s;filter:drop-shadow(0 2px 3px #0008)}
+.la-cursor.click{transform:scale(.82)}
+.la-cursor.fast{transition-duration:.8s}
