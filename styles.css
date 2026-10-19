@@ -55,7 +55,7 @@ img{height:auto}.screen-frame img{height:auto}
 .lay .editor{display:flex;gap:20px;align-items:flex-start}
 .lay .board-col{flex:none;width:320px}
 .lay .board{position:relative;width:100%;aspect-ratio:9/16;background:var(--bg);border:1px solid var(--line2);border-radius:8px;user-select:none}
-.lay .tile{position:absolute;border-radius:6px;background:linear-gradient(#2a3441,#1f2733);border:2px solid var(--line2);display:flex;align-items:center;justify-content:center;text-align:center;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);cursor:grab;overflow:hidden;padding:2px;transition:left .6s ease,top .6s ease,width .25s ease,height .25s ease,opacity .35s ease}
+.lay .tile{position:absolute;border-radius:6px;background:linear-gradient(#2a3441,#1f2733);border:2px solid var(--line2);display:flex;align-items:center;justify-content:center;text-align:center;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);cursor:grab;overflow:hidden;padding:2px;transition:left .6s ease,top .6s ease,width .3s ease,height .3s ease,opacity .35s ease}
 .lay .tile.sel{border-color:var(--indtx);color:var(--tx);z-index:3}
 .lay .tile .size{position:absolute;right:0;bottom:0;width:24px;height:24px;cursor:nwse-resize;background:linear-gradient(135deg,transparent 50%,var(--indtx) 50%);border-bottom-right-radius:4px;display:none}
 .lay .tile.sel .size{display:block}

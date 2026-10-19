@@ -202,7 +202,9 @@ if (year) year.textContent = new Date().getFullYear();
       tiles.push({ id: ++ids, type: 'quote', x: 0, y: 1, w: 1, h: 1 }); sel = tiles[tiles.length - 1]; render(); await sleep(1000);
       // Resize it with the corner handle, a column at a time
       goto(handleOf(sel)); await sleep(1000); await press();
-      for (let w = 2; w <= COLS; w++) { sel.w = w; render(); goto(handleOf(sel)); await sleep(420); }
+      cursor.style.transition = 'left .3s ease, top .3s ease, transform .12s';
+      for (let w = 2; w <= COLS; w++) { sel.w = w; render(); goto(handleOf(sel)); await sleep(380); }
+      cursor.style.transition = '';
       await sleep(900);
       // Swap clock and weather by dragging
       const clock = tileOf('clock'), weather = tileOf('weather');
