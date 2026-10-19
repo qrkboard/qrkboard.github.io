@@ -36,3 +36,5 @@ img{height:auto}.screen-frame img{height:auto}
 .price-desc{min-height:46px}
 .price-card h3{min-height:69px}
 .shot-card{padding:7px;border:1px solid #ffffff20;border-radius:18px;background:linear-gradient(145deg,#343a43,#121519 65%);box-shadow:0 25px 60px #0005;min-width:0}.shot-card img{width:100%;height:auto;border-radius:12px}
+
+.price-card .price-sub{font-size:16px;font-weight:700;color:#e5e8ec;margin-top:8px}
