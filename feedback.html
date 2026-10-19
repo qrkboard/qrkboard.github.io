@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101317">
+  <meta name="description" content="Report a problem or request a feature for QRK Board.">
+  <title>Feedback · QRK Board</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='24' fill='none' stroke='%237219F4' stroke-width='10'/%3E%3Cpath d='M46 46l12 12' stroke='%23E60B8D' stroke-width='10' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="QRK Board home">
+      <canvas class="logo" width="152" height="152" aria-hidden="true"></canvas>
+      <span>QRK <b>Board</b></span>
+    </a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
+    <nav id="main-nav" class="main-nav">
+      <a href="index.html#home">For home</a>
+      <a href="index.html#business">For business</a>
+      <a href="index.html#screens">Screens</a>
+      <a href="index.html#how-it-works">How it works</a>
+      <a href="index.html#privacy">Privacy</a>
+      <a class="nav-cta" href="index.html#get-started">Get started <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main class="doc section-wrap"><div class="eyebrow">Feedback</div><h1>Report a problem or ask for a feature</h1>
+<p class="lede">Tell us what went wrong or what you would like. No account needed.</p>
+<form id="fb" class="fb-form">
+<div class="seg" role="group" aria-label="Type"><button type="button" data-v="bug" aria-pressed="true">Problem</button><button type="button" data-v="feature" aria-pressed="false">Feature request</button></div>
+<label>Summary<input id="fb-title" required maxlength="120" placeholder="Short title"></label>
+<label><span id="fb-l1">What happened?</span><textarea id="fb-a" rows="4" required></textarea></label>
+<label><span id="fb-l2">What did you expect?</span><textarea id="fb-b" rows="3"></textarea></label>
+<label>Device and app version<input id="fb-env" placeholder="Fire TV Stick 4K, r5"></label>
+<p class="muted-note">Don't include passwords, camera addresses or personal details.</p>
+<input id="fb-site" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+<button class="button button-primary" type="submit">Send <span aria-hidden="true">→</span></button><p id="fb-msg" class="muted-note" role="status"></p>
+</form>
+<script>
+(function(){var ENDPOINT='https://qrk-feedback.example.workers.dev',t='bug',f=document.getElementById('fb'),msg=document.getElementById('fb-msg'),btn=f.querySelector('[type=submit]');
+var L={bug:['What happened?','What did you expect?'],feature:['What would you like?','Why would it help?']};
+f.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(){t=b.dataset.v;f.querySelectorAll('.seg button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});document.getElementById('fb-l1').textContent=L[t][0];document.getElementById('fb-l2').textContent=L[t][1]}});
+f.onsubmit=function(e){e.preventDefault();var v=function(i){return document.getElementById(i).value.trim()};btn.disabled=true;msg.textContent='Sending...';
+fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:t,title:v('fb-title'),a:v('fb-a'),b:v('fb-b'),device:v('fb-env'),website:v('fb-site')})})
+.then(function(r){return r.json()}).then(function(d){msg.textContent=d.message;if(d.ok)f.reset()}).catch(function(){msg.textContent='Could not send, try again later'}).then(function(){btn.disabled=false})}})();
+</script></main>
+  <footer class="site-footer"><div class="section-wrap footer-inner"><a class="brand" href="index.html"><canvas class="logo" width="152" height="152" aria-hidden="true"></canvas><span>QRK <b>Board</b></span></a><span class="footer-tagline">Your screen. Your dashboard. Nothing complicated.</span><div class="footer-links"><a href="privacy.html">Privacy</a><a href="index.html#faq">FAQ</a><a href="feedback.html">Feedback</a><a href="mailto:qrkboard@gmail.com">Contact</a></div><span class="copyright">© <span id="year">2026</span> QRK Board</span></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
