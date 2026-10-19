@@ -42,7 +42,7 @@
 <button class="button button-primary" type="submit">Send <span aria-hidden="true">→</span></button><p id="fb-msg" class="muted-note" role="status"></p>
 </form>
 <script>
-(function(){var ENDPOINT='https://qrk-feedback.example.workers.dev',t='bug',f=document.getElementById('fb'),msg=document.getElementById('fb-msg'),btn=f.querySelector('[type=submit]');
+(function(){var ENDPOINT='https://qrkboard-github-io.qrk-feedback.workers.dev',t='bug',f=document.getElementById('fb'),msg=document.getElementById('fb-msg'),btn=f.querySelector('[type=submit]');
 var L={bug:['What happened?','What did you expect?'],feature:['What would you like?','Why would it help?']};
 f.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(){t=b.dataset.v;f.querySelectorAll('.seg button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});document.getElementById('fb-l1').textContent=L[t][0];document.getElementById('fb-l2').textContent=L[t][1]}});
 f.onsubmit=function(e){e.preventDefault();var v=function(i){return document.getElementById(i).value.trim()};btn.disabled=true;msg.textContent='Sending...';
