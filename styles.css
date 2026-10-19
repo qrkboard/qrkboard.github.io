@@ -91,3 +91,9 @@ img{height:auto}.screen-frame img{height:auto}
 .lay .cursor{position:absolute;left:0;top:0;width:20px;height:24px;z-index:9;pointer-events:none;transition:left .8s cubic-bezier(.4,0,.2,1),top .8s cubic-bezier(.4,0,.2,1),transform .12s;filter:drop-shadow(0 2px 3px #0008)}
 .lay .cursor.click{transform:scale(.8)}
 @media (prefers-reduced-motion:reduce){.lay-host{display:none!important}.editor-image.live>img{visibility:visible}}
+
+.shot-card.portrait{width:min(100%,330px);justify-self:center}
+.shot-card.tilt-right{transform:perspective(1400px) rotateY(9deg)}
+.shot-card.tilt-left{transform:perspective(1400px) rotateY(-9deg)}
+
+.faq-list details p a{color:#c2baff;text-decoration:underline}
