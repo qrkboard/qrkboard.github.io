@@ -91,3 +91,24 @@ img{height:auto}.screen-frame img{height:auto}
 .lay .cursor{position:absolute;left:0;top:0;width:20px;height:24px;z-index:9;pointer-events:none;transition:left .8s cubic-bezier(.4,0,.2,1),top .8s cubic-bezier(.4,0,.2,1),transform .12s;filter:drop-shadow(0 2px 3px #0008)}
 .lay .cursor.click{transform:scale(.8)}
 @media (prefers-reduced-motion:reduce){.lay-host{display:none!important}.editor-image.live>img{visibility:visible}}
+
+.shot-card.portrait{width:min(100%,330px);justify-self:center}
+.shot-card.tilt-right{transform:perspective(1400px) rotateY(9deg)}
+.shot-card.tilt-left{transform:perspective(1400px) rotateY(-9deg)}
+
+.faq-list details p a{color:#c2baff;text-decoration:underline}
+
+@media(min-width:1001px){
+.hero{gap:24px}
+.screen-frame{transform:perspective(1400px) rotateY(-9deg)}
+.audience-grid,.business-grid{gap:36px}
+.shot-card.portrait.tilt-right{justify-self:end}
+.shot-card.portrait.tilt-left{justify-self:start}
+}
+@media(max-width:1000px){.shot-card.tilt-left,.shot-card.tilt-right{transform:none}}
+
+@media(min-width:1001px){
+#cameras .audience-grid{grid-template-columns:minmax(0,440px) 330px;justify-content:center;gap:56px}
+#business .business-grid{grid-template-columns:330px minmax(0,540px);justify-content:center;gap:56px}
+#cameras .shot-card,#business .shot-card{justify-self:stretch}
+}
