@@ -1,0 +1,7 @@
+name = "qrk-feedback"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+REPO = "qrkboard/feedback"
+ORIGIN = "https://qrkboard.github.io"
