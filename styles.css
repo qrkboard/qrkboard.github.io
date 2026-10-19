@@ -35,3 +35,8 @@ img{height:auto}.screen-frame img{height:auto}
 .price-card{display:flex;flex-direction:column}.price-card ul{flex:1}
 .price-desc{min-height:46px}
 .price-card h3{min-height:69px}
+.shot-card{padding:7px;border:1px solid #ffffff20;border-radius:18px;background:linear-gradient(145deg,#343a43,#121519 65%);box-shadow:0 25px 60px #0005;min-width:0}.shot-card img{width:100%;height:auto;border-radius:12px}
+
+.price-card .price-sub{font-size:16px;font-weight:700;color:#e5e8ec;margin-top:8px}
+.shot-card.fade{display:grid}.shot-card.fade img{grid-area:1/1;opacity:0;transition:opacity 1.5s ease}.shot-card.fade img.on{opacity:1}.shot-card.fade img:first-child{opacity:1}.shot-card.fade.go img:first-child{opacity:0}.shot-card.fade.go img.on{opacity:1}
+@media (prefers-reduced-motion:reduce){.shot-card.fade img{transition:none}}
