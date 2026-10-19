@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
   <header class="site-header">
@@ -87,7 +87,7 @@
       <div class="section-wrap audience-grid">
         <div class="audience-copy">
           <div class="eyebrow"><span class="mini-icon home-icon">⌂</span> For home · Free</div>
-          <h2>A calmer way to keep everyone <span class="gradient-text">in the loop.</span></h2>
+          <h2>Keep everyone <span class="gradient-text">in the loop</span></h2>
           <p>Turn a kitchen TV, family tablet or spare screen into the place everyone checks before heading out the door.</p>
           <ul class="feature-list">
             <li><span class="check">✓</span><span><b>Family calendar</b><small>Today’s plans and what’s coming up.</small></span></li>
@@ -96,14 +96,26 @@
           </ul>
           <div class="audience-footer"><a class="button button-primary" href="#get-started">Explore the free dashboard <span aria-hidden="true">→</span></a><span class="small-note">Everyday essentials are free.</span></div>
         </div>
-        <div class="shot-card"><img src="assets/screens/home-family.jpg" width="1920" height="1080" alt="A home board: clock, weather, today and coming up, a month calendar, days to go, quote of the day and device status." loading="lazy"></div>
+        <div class="shot-card fade" data-fade><img src="assets/screens/home-light.jpg" width="1920" height="1080" alt="A home board: clock, weather, today and coming up, a month calendar, days to go, quote of the day and device status." loading="lazy"><img src="assets/screens/home-dark.jpg" width="1920" height="1080" alt="" aria-hidden="true" loading="lazy"><img src="assets/screens/home-sand.jpg" width="1920" height="1080" alt="" aria-hidden="true" loading="lazy"></div>
       </div>
     </section>
 
     <section class="business-section" id="business">
       <div class="section-wrap business-grid">
-        <div class="shot-card"><img src="assets/screens/business.jpg" width="1920" height="1080" alt="A business board: a logo tile, security cameras, an internet traffic graph and gauges." loading="lazy"></div>
-        <div class="business-copy"><div class="eyebrow"><span class="mini-icon biz-icon">↗</span> For business · Pro</div><h2>Your business.<br><span class="gradient-text">In full view.</span></h2><p>Give your team one shared view of the information that keeps things moving. QRK Board makes powerful dashboards accessible without enterprise-sized complexity or cost.</p><ul class="feature-list"><li><span class="pro-symbol">◉</span><span><b>Security camera views and alerts</b><small>Show supported Reolink feeds and webhook-triggered video alerts.</small></span></li><li><span class="pro-symbol">✳</span><span><b>Your brand on every screen</b><small>Add your logo and branding for a professional, consistent display.</small></span></li><li><span class="pro-symbol">⌁</span><span><b>Metrics that tell a story</b><small>Build graphs and gauges for sales, service health, network stats and more.</small></span></li></ul><div class="data-pills"><span>REST API</span><span>GraphQL</span><span>InfluxDB</span></div><a class="button button-primary" href="#pro">Explore Pro features <span aria-hidden="true">→</span></a></div>
+        <div class="shot-card fade" data-fade><img src="assets/screens/business-dark.jpg" width="1920" height="1080" alt="A clinic board: logo and welcome, a month calendar, wait time and doctors on staff, and patients served over the past week." loading="lazy"><img src="assets/screens/business-light.jpg" width="1920" height="1080" alt="" aria-hidden="true" loading="lazy"><img src="assets/screens/business-sand.jpg" width="1920" height="1080" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="business-copy"><div class="eyebrow"><span class="mini-icon biz-icon">↗</span> For business · Pro</div><h2>Your business.<br><span class="gradient-text">In full view.</span></h2><p>Give your team one shared view of the information that keeps things moving. QRK Board makes powerful dashboards accessible without enterprise-sized complexity or cost.</p><ul class="feature-list"><li><span class="pro-symbol">◉</span><span><b>Wait times and headcounts</b><small>Type in a number or pull it from an API.</small></span></li><li><span class="pro-symbol">✳</span><span><b>Your brand on every screen</b><small>Add your logo and branding for a professional, consistent display.</small></span></li><li><span class="pro-symbol">⌁</span><span><b>Metrics that tell a story</b><small>Build graphs and gauges for sales, service health, network stats and more.</small></span></li></ul><div class="data-pills"><span>REST API</span><span>GraphQL</span><span>InfluxDB</span></div><a class="button button-primary" href="#pro">Explore Pro features <span aria-hidden="true">→</span></a></div>
+      </div>
+    </section>
+
+    <section class="audience-section" id="cameras">
+      <div class="section-wrap audience-grid">
+        <div class="audience-copy">
+          <div class="eyebrow"><span class="mini-icon home-icon">◉</span> Cameras</div>
+          <h2>See every door <span class="gradient-text">at a glance</span></h2>
+          <p>Live camera views beside your calendar and weather, on the screen you already look at.</p>
+          <div class="audience-footer"><a class="button button-primary" href="#pro">See pricing <span aria-hidden="true">→</span></a></div>
+        </div>
+<div class="shot-card fade" data-fade><img src="assets/screens/cameras-sand.jpg" width="1920" height="1080" alt="A home board with the calendar and weather beside two live camera views, a driveway and a front door." loading="lazy"><img src="assets/screens/cameras-dark.jpg" width="1920" height="1080" alt="" aria-hidden="true" loading="lazy"><img src="assets/screens/cameras-light.jpg" width="1920" height="1080" alt="" aria-hidden="true" loading="lazy"></div>
       </div>
     </section>
 
@@ -120,6 +132,6 @@
   </main>
 
   <footer class="site-footer"><div class="section-wrap footer-inner"><a class="brand" href="#top"><canvas class="logo" width="152" height="152" aria-hidden="true"></canvas><span>QRK <b>Board</b></span></a><span class="footer-tagline">Your screen. Your dashboard. Nothing complicated.</span><div class="footer-links"><a href="privacy.html">Privacy</a><a href="#faq">FAQ</a><a href="feedback.html">Feedback</a><a href="mailto:qrkboard@gmail.com">Contact</a></div><span class="copyright">© <span id="year">2026</span> QRK Board</span></div></footer>
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

@@ -58,3 +58,20 @@ if (year) year.textContent = new Date().getFullYear();
   function f(t) { ctxs.forEach(x => draw(x, t / 1000 * 2)); if (!still) requestAnimationFrame(f) }
   requestAnimationFrame(f);
 })();
+
+// Board screenshots: fade between the three themes every 30 seconds.
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('[data-fade]').forEach(card => {
+    const imgs = [...card.querySelectorAll('img')];
+    if (imgs.length < 2) return;
+    card.classList.add('go');
+    imgs[0].classList.add('on');
+    let i = 0;
+    setInterval(() => {
+      imgs[i].classList.remove('on');
+      i = (i + 1) % imgs.length;
+      imgs[i].classList.add('on');
+    }, 30000);
+  });
+})();
