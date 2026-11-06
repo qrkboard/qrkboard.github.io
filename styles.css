@@ -113,6 +113,9 @@ h1, h2, h3 { font-family: Manrope, sans-serif; margin: 0; }
 .store { display: flex; align-items: center; gap: 11px; padding: 9px 16px 9px 12px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--panel); min-width: 0; }
 .store-icon { display: grid; place-items: center; width: 30px; height: 30px; color: #e5e8ec; flex: none; }
 .store-icon svg { width: 26px; height: 26px; }
+a.store:hover { border-color: #777f8c; }
+.store-soon { opacity: .8; }
+.soon-badge { margin-left: 4px; padding: 2px 8px; border-radius: 999px; background: #2a313a; color: #c2c8d0; font-size: 11px; font-weight: 700; white-space: nowrap; }
 .store-text { display: flex; flex-direction: column; line-height: 1.2; }
 .store-text small { font-size: 11px; color: #8b95a0; }
 .store-text b { font-family: Manrope, sans-serif; font-size: 15px; }
@@ -167,6 +170,11 @@ h1, h2, h3 { font-family: Manrope, sans-serif; margin: 0; }
 .shot-card.fade.go img.on { opacity: 1; }
 
 @media (min-width: 1001px) {
+  .screen-frame { transform: perspective(1400px) rotateY(-9deg); }
+  .shot-card.tilt-left { transform: perspective(1400px) rotateY(-9deg); }
+  .shot-card.tilt-right { transform: perspective(1400px) rotateY(9deg); }
+  .shot-card.portrait.tilt-right { justify-self: end; }
+  .shot-card.portrait.tilt-left { justify-self: start; }
   #cameras .audience-grid { grid-template-columns: minmax(0, 440px) 330px; justify-content: center; gap: 56px; }
   #business .business-grid { grid-template-columns: 330px minmax(0, 540px); justify-content: center; gap: 56px; }
 }
