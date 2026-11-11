@@ -15,11 +15,11 @@ if (toggle && nav) {
 const year = document.querySelector('#year');
 if (year) year.textContent = new Date().getFullYear();
 
-// Screenshot picker: layout, orientation and theme.
+// Screenshot picker: layout, orientation, theme and style.
 (function () {
   const stage = document.getElementById('stage'), img = document.getElementById('shot');
   if (!stage || !img) return;
-  const st = { layout: '1', orient: 'landscape', theme: 'dark' };
+  const st = { layout: '1', orient: 'landscape', theme: 'dark', style: 'float' };
   const names = { '1': 'everything', '2': 'photo clock', '3': 'calendar' };
   document.querySelectorAll('.seg').forEach(seg => seg.addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
@@ -28,8 +28,8 @@ if (year) year.textContent = new Date().getFullYear();
     const land = st.orient === 'landscape';
     stage.dataset.orient = st.orient;
     img.width = land ? 1920 : 1080; img.height = land ? 1080 : 1920;
-    img.alt = `QRK Board, ${names[st.layout]} layout, ${st.orient}, ${st.theme} theme`;
-    img.src = `assets/screens/${st.orient}-${st.layout}-${st.theme}.jpg`;
+    img.alt = `QRK Board, ${names[st.layout]} layout, ${st.orient}, ${st.theme} theme, ${st.style} style`;
+    img.src = `assets/screens/${st.orient}-${st.layout}-${st.theme}${st.style === 'lines' ? '-lines' : ''}.jpg`;
   }));
 })();
 
